@@ -14,8 +14,8 @@ export function useCursor<DataType>(list: VirtualResultList<DataType> | null, {o
 		if (list && !cursor) {
 			const c = list.cursor(offset, pageSize, preloadPages);
 			setCursor(c);
-			c.onUpdate((view) => {
-				setView(view);
+			c.onUpdate(() => {
+				setView(c.view || null);
 			});
 		}
 		return () => {

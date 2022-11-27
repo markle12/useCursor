@@ -6,8 +6,8 @@ export function useCursor(list, { offset, pageSize, preloadPages = 2 }) {
         if (list && !cursor) {
             const c = list.cursor(offset, pageSize, preloadPages);
             setCursor(c);
-            c.onUpdate((view) => {
-                setView(view);
+            c.onUpdate(() => {
+                setView(c.view || null);
             });
         }
         return () => {

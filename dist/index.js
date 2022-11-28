@@ -3,6 +3,7 @@ export function useCursor(list, { offset, pageSize, preloadPages = 2 }) {
     const [cursor, setCursor] = useState(null);
     const [view, setView] = useState(null);
     useEffect(() => {
+        console.log('ye olde effect', { list, cursor });
         if (list && !cursor) {
             const c = list.cursor(offset, pageSize, preloadPages);
             setCursor(c);
